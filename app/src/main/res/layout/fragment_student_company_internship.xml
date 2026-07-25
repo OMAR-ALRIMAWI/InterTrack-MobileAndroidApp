@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0569bf">
+
+    <!-- In-fragment header (back + company name) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="54dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnInternBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="7dp"
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="Back"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvInternCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TechNova Solutions"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Internship Details"
+                android:textColor="#CCE0FF"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- White scrollable body -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_content_rounded_top"
+        android:clipToOutline="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="22dp"
+            android:paddingBottom="32dp">
+
+            <!-- Company logo + name card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_report_icon_circle"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="TN"
+                        android:textColor="#0569bf"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvCompanyFullName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TechNova Solutions"
+                        android:textColor="#0F172A"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="4dp">
+                        <ImageView android:layout_width="14dp" android:layout_height="14dp"
+                            android:src="@drawable/ic_location_pin"
+                            android:contentDescription="@null" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Palo Alto, CA"
+                            android:textColor="#64748B"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Internship Title -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#EFF6FF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#BFDBFE">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Position"
+                        android:textColor="#0569bf" android:textSize="11sp" android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvInternshipTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Software Engineering Intern"
+                        android:textColor="#0F172A"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Quick Info Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="14dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Duration"
+                            android:textColor="#64748B" android:textSize="11sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="3 Months"
+                            android:textColor="#0F172A" android:textSize="13sp" android:textStyle="bold"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Mode"
+                            android:textColor="#64748B" android:textSize="11sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Hybrid"
+                            android:textColor="#0F172A" android:textSize="13sp" android:textStyle="bold"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Open Spots"
+                            android:textColor="#64748B" android:textSize="11sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textColor="#16A34A" android:textSize="13sp" android:textStyle="bold"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Description -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="About the Internship"
+                android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="14dp"
+                    android:text="Join our engineering team at TechNova Solutions to work on cutting-edge fintech and B2B platforms. You will collaborate with senior engineers, contribute to production code, and gain hands-on experience with modern software development practices."
+                    android:textColor="#374151" android:textSize="13sp"
+                    android:lineSpacingExtra="4dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Requirements -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Requirements"
+                android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="• Currently enrolled in a CS or Software Engineering program\n• Proficiency in at least one modern programming language\n• Familiarity with version control (Git)\n• Basic understanding of REST APIs\n• Strong communication skills and team mindset"
+                        android:textColor="#374151" android:textSize="13sp"
+                        android:lineSpacingExtra="4dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Required Skills -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Required Skills"
+                android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_skill_tag"
+                    android:paddingStart="12dp" android:paddingEnd="12dp"
+                    android:paddingTop="6dp" android:paddingBottom="6dp"
+                    android:text="React" android:textColor="#475569" android:textSize="12sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_skill_tag"
+                    android:paddingStart="12dp" android:paddingEnd="12dp"
+                    android:paddingTop="6dp" android:paddingBottom="6dp"
+                    android:text="Node.js" android:textColor="#475569" android:textSize="12sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_tag"
+                    android:paddingStart="12dp" android:paddingEnd="12dp"
+                    android:paddingTop="6dp" android:paddingBottom="6dp"
+                    android:text="SQL" android:textColor="#475569" android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Documents Needed -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Required Documents"
+                android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="• Updated CV / Resume\n• Transcript of academic records\n• Letter of intent (optional)\n• Student enrollment verification"
+                        android:textColor="#374151" android:textSize="13sp"
+                        android:lineSpacingExtra="4dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Status section -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Application Status"
+                android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Current status"
+                        android:textColor="#64748B" android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvApplicationStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_skill_tag"
+                        android:paddingStart="12dp" android:paddingEnd="12dp"
+                        android:paddingTop="5dp" android:paddingBottom="5dp"
+                        android:text="Not Applied"
+                        android:textColor="#64748B" android:textSize="12sp" android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Apply Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApplyInternship"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Apply for this Internship"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                app:backgroundTint="#0569bf"
+                app:cornerRadius="16dp"
+                app:strokeWidth="0dp" />
+
+            <!-- TODO: connect to backend → POST /api/internship-applications -->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

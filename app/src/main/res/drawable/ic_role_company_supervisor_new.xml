@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+
+    <!--  Corporate building with pediment top and windows.
+          evenOdd punches the door and windows through the solid building.  -->
+    <path
+        android:fillColor="#000000"
+        android:fillType="evenOdd"
+        android:pathData="M4,11L16,3L28,11L28,30L4,30Z
+                          M13.5,24L18.5,24L18.5,30L13.5,30Z
+                          M6.5,13.5L10.5,13.5L10.5,17.5L6.5,17.5Z
+                          M14,13.5L18,13.5L18,17.5L14,17.5Z
+                          M21.5,13.5L25.5,13.5L25.5,17.5L21.5,17.5Z
+                          M6.5,20L10.5,20L10.5,24L6.5,24Z
+                          M14,20L18,20L18,24L14,24Z
+                          M21.5,20L25.5,20L25.5,24L21.5,24Z"/>
+
+</vector>

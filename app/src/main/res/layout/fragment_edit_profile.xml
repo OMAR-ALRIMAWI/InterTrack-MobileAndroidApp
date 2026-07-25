@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_content_rounded_top"
+    android:clipToOutline="true"
+    android:clipToPadding="false"
+    android:paddingBottom="128dp"
+    android:scrollbars="none"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="24dp">
+
+        <!-- Avatar change row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <FrameLayout
+                android:id="@+id/editProfileAvatarHolder"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <FrameLayout
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/bg_icon_circle_blue"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="AJ"
+                        android:textColor="#FFFFFF"
+                        android:textSize="28sp"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_icon_circle_blue">
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_compose"
+                        android:contentDescription="Edit photo"/>
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Change Photo"
+                android:textColor="#0569BF"
+                android:textSize="13sp"/>
+
+        </LinearLayout>
+
+        <!-- Form card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E2E8F0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Profile Information"
+                    android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold"
+                    android:layout_marginBottom="14dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:hint="Full Name"
+                    app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEditFullName"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="textPersonName" android:textColor="#0F172A" android:textSize="14sp"
+                        android:text="Alex Johnson"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:hint="Email"
+                    app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEditEmail"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress" android:textColor="#0F172A" android:textSize="14sp"
+                        android:text="alex.johnson@university.edu"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:hint="Phone Number"
+                    app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEditPhone"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="phone" android:textColor="#0F172A" android:textSize="14sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:hint="University"
+                    app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEditUniversity"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="text" android:textColor="#0F172A" android:textSize="14sp"
+                        android:text="Istanbul Technical University"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:hint="Department / Major"
+                    app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEditDepartment"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="text" android:textColor="#0F172A" android:textSize="14sp"
+                        android:text="Software Engineering"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:hint="Student ID"
+                    app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEditStudentId"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="text" android:textColor="#0F172A" android:textSize="14sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp" android:hint="Bio / About"
+                    app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEditBio"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="textMultiLine" android:minLines="3"
+                        android:gravity="top" android:textColor="#0F172A" android:textSize="14sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Save + Cancel -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="18dp"
+            android:text="Save Changes"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="#005FAF"
+            app:cornerRadius="14dp"
+            app:strokeWidth="0dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelEdit"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="10dp"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#64748B"
+            android:textSize="15sp"
+            app:cornerRadius="14dp"
+            app:strokeColor="#E2E8F0"
+            app:strokeWidth="1dp"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

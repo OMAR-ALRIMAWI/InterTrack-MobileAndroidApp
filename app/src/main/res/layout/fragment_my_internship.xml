@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshMyInternship"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_content_rounded_top"
+    android:clipToOutline="true"
+    android:clipToPadding="false"
+    android:paddingBottom="128dp"
+    android:scrollbars="none"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="24dp">
+
+        <!-- Loading indicator -->
+        <ProgressBar
+            android:id="@+id/progressMyInternshipMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:visibility="gone" />
+
+        <!-- Error state -->
+        <TextView
+            android:id="@+id/tvMyInternshipError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:textColor="#DC2626"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!-- Main Content -->
+        <LinearLayout
+            android:id="@+id/myInternshipContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Status card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#005FAF"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Current Internship"
+                        android:textColor="#CCE0FF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvInternshipCompanyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TechCorp Solutions"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tvInternshipPosition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Software Development Intern"
+                        android:textColor="#CCE0FF"
+                        android:textSize="13sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#FFFFFF30" android:layout_marginTop="14dp" android:layout_marginBottom="14dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Overall Progress"
+                        android:textColor="#CCE0FF"
+                        android:textSize="12sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="6dp">
+
+                        <ProgressBar
+                            android:id="@+id/progressInternship"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="8dp"
+                            android:layout_weight="1"
+                            android:progress="65"
+                            android:progressDrawable="@drawable/progress_blue"
+                            android:background="#FFFFFF40"/>
+
+                        <TextView
+                            android:id="@+id/tvProgressPct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="65%"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Completion / congratulations card (shown only when the internship is COMPLETED) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCompletion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#BFDBFE"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎉 Congratulations!"
+                        android:textColor="#005FAF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvCompletionMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="You have successfully completed your internship."
+                        android:textColor="#0F172A"
+                        android:textSize="14sp"/>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#E2E8F0" android:layout_marginTop="14dp" android:layout_marginBottom="12dp"/>
+
+                    <TextView android:id="@+id/tvCompletionPeriod"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Period: —" android:textColor="#0F172A" android:textSize="13sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView android:id="@+id/tvCompletionDate"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Completed: —" android:textColor="#0F172A" android:textSize="13sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView android:id="@+id/tvCompletionReports"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Reports submitted: —" android:textColor="#0F172A" android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Final Company Evaluation"
+                        android:textColor="#005FAF" android:textSize="13sp" android:textStyle="bold"
+                        android:layout_marginTop="14dp"/>
+                    <TextView android:id="@+id/tvCompletionCompanyEval"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Not available yet." android:textColor="#334155" android:textSize="13sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Final Instructor Evaluation"
+                        android:textColor="#005FAF" android:textSize="13sp" android:textStyle="bold"
+                        android:layout_marginTop="12dp"/>
+                    <TextView android:id="@+id/tvCompletionInstructorEval"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Not available yet." android:textColor="#334155" android:textSize="13sp"
+                        android:layout_marginTop="2dp"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Ended-by-company card (shown only when the company ended the internship early) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardEndedByCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FEF2F2"
+                app:strokeWidth="1dp"
+                app:strokeColor="#FECACA"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Internship Ended"
+                        android:textColor="#DC2626"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Your internship was ended by the company."
+                        android:textColor="#0F172A"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvEndedReason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Reason: —"
+                        android:textColor="#991B1B"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Stats row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF" app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="14dp">
+                        <TextView
+                            android:id="@+id/tvMyInternReportsSubmitted"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textColor="#005FAF" android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Reports Submitted" android:textColor="#64748B" android:textSize="11sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="6dp"
+                    app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFFFFF" app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="14dp">
+                        <TextView
+                            android:id="@+id/tvMyInternReportsPending"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textColor="#F97316" android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Pending Review" android:textColor="#64748B" android:textSize="11sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Details card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Internship Details"
+                        android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Instructor row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+                        <TextView android:layout_width="120dp" android:layout_height="wrap_content"
+                            android:text="Instructor" android:textColor="#94A3B8" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvInternshipInstructor"
+                            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="Dr. Elif Demir" android:textColor="#0F172A" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Company supervisor row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+                        <TextView android:layout_width="120dp" android:layout_height="wrap_content"
+                            android:text="Supervisor" android:textColor="#94A3B8" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvInternshipSupervisor"
+                            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="Mr. Ali Yilmaz" android:textColor="#0F172A" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Start date -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+                        <TextView android:layout_width="120dp" android:layout_height="wrap_content"
+                            android:text="Start Date" android:textColor="#94A3B8" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvInternshipStart"
+                            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="Sep 1, 2023" android:textColor="#0F172A" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- End date -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:layout_width="120dp" android:layout_height="wrap_content"
+                            android:text="End Date" android:textColor="#94A3B8" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvInternshipEnd"
+                            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="Dec 31, 2023" android:textColor="#0F172A" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Weekly reports / period card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWeeklyPeriod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#EFF6FF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#BFDBFE"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Weekly Reports"
+                        android:textColor="#005FAF" android:textSize="15sp" android:textStyle="bold"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView android:id="@+id/tvMyInternPeriod"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Period: —" android:textColor="#0F172A" android:textSize="13sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView android:id="@+id/tvMyInternWeek"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Current week: —" android:textColor="#0F172A" android:textSize="13sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView android:id="@+id/tvMyInternDeadline"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Deadline: —" android:textColor="#0F172A" android:textSize="13sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView android:id="@+id/tvMyInternReportCount"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Reports submitted: —" android:textColor="#0F172A" android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                    <TextView android:id="@+id/tvMyInternPeriodNotSet"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Internship period has not been set yet."
+                        android:textColor="#B45309" android:textSize="13sp"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Application status card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Application Status"
+                            android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/tvAppStatusCompanyName"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="" android:textColor="#64748B" android:textSize="12sp"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvApplicationStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accepted"
+                        android:textColor="#16A34A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_approved"
+                        android:paddingStart="12dp" android:paddingEnd="12dp"
+                        android:paddingTop="5dp" android:paddingBottom="5dp"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action buttons -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFindCompanies"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="Find Companies"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="#005FAF"
+                app:cornerRadius="14dp"
+                app:strokeWidth="0dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddInstructorToInternship"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="Add Instructor to Internship"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="#7C3AED"
+                app:cornerRadius="14dp"
+                app:strokeWidth="0dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMyInternHub"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="Open Internship Hub"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="#005FAF"
+                app:cornerRadius="14dp"
+                app:strokeWidth="0dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMyInternProgressChat"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="Open Progress Chat"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="#005FAF"
+                app:cornerRadius="14dp"
+                app:strokeWidth="0dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMyInternMsgCompany"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="Message Company"
+                android:textAllCaps="false"
+                android:textColor="#005FAF"
+                android:textSize="15sp"
+                app:cornerRadius="14dp"
+                app:strokeColor="#005FAF"
+                app:strokeWidth="1dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMyInternMsgInstructor"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="Message Instructor"
+                android:textAllCaps="false"
+                android:textColor="#005FAF"
+                android:textSize="15sp"
+                app:cornerRadius="14dp"
+                app:strokeColor="#005FAF"
+                app:strokeWidth="1dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMyInternViewReports"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="View Reports"
+                android:textAllCaps="false"
+                android:textColor="#005FAF"
+                android:textSize="15sp"
+                app:cornerRadius="14dp"
+                app:strokeColor="#005FAF"
+                app:strokeWidth="1dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMyInternSubmitReport"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="Submit Report"
+                android:textAllCaps="false"
+                android:textColor="#005FAF"
+                android:textSize="15sp"
+                app:cornerRadius="14dp"
+                app:strokeColor="#005FAF"
+                app:strokeWidth="1dp"
+                android:visibility="gone"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewApplication"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="10dp"
+                android:text="View Application"
+                android:textAllCaps="false"
+                android:textColor="#0569BF"
+                android:textSize="15sp"
+                app:cornerRadius="14dp"
+                app:strokeColor="#0569BF"
+                app:strokeWidth="1dp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

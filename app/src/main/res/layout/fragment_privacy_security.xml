@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_content_rounded_top"
+    android:clipToOutline="true"
+    android:clipToPadding="false"
+    android:paddingBottom="128dp"
+    android:scrollbars="none"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="24dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SECURITY"
+            android:textColor="#94A3B8" android:textSize="11sp" android:textStyle="bold"
+            android:layout_marginBottom="8dp" android:letterSpacing="0.1"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF" app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout android:id="@+id/rowSecChangePassword"
+                    android:layout_width="match_parent" android:layout_height="56dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingStart="16dp" android:paddingEnd="16dp"
+                    android:clickable="true" android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+                    <FrameLayout android:layout_width="36dp" android:layout_height="36dp"
+                        android:background="@drawable/bg_icon_circle_blue" android:layout_marginEnd="12dp">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_lock" app:tint="#FFFFFF" android:contentDescription="@null"/>
+                    </FrameLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Change Password" android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Update your account password" android:textColor="#64748B" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                        android:src="@drawable/ic_chevron_right" app:tint="#9CA3AF" android:contentDescription="@null"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:layout_marginStart="64dp" android:background="#F1F5F9"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingStart="16dp" android:paddingEnd="16dp">
+                    <FrameLayout android:layout_width="36dp" android:layout_height="36dp"
+                        android:background="@drawable/bg_icon_circle_orange" android:layout_marginEnd="12dp">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_notif_verified" app:tint="#FFFFFF" android:contentDescription="@null"/>
+                    </FrameLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Two-Step Verification" android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Coming soon" android:textColor="#94A3B8" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <Switch android:layout_width="50dp" android:layout_height="50dp"
+                        android:enabled="false" android:theme="@style/Theme.MaterialComponents"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="PRIVACY"
+            android:textColor="#94A3B8" android:textSize="11sp" android:textStyle="bold"
+            android:layout_marginBottom="8dp" android:letterSpacing="0.1"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF" app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingStart="16dp" android:paddingEnd="16dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Profile Visibility" android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Allow others to see your profile" android:textColor="#64748B" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <Switch android:id="@+id/switchProfileVisibility"
+                        android:layout_width="50dp" android:layout_height="50dp"
+                        android:checked="true" android:theme="@style/Theme.MaterialComponents"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="#F1F5F9"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingStart="16dp" android:paddingEnd="16dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Who Can Message Me" android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Instructors and Company Supervisors" android:textColor="#64748B" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <Switch android:id="@+id/switchWhoMessage"
+                        android:layout_width="50dp" android:layout_height="50dp"
+                        android:checked="true" android:theme="@style/Theme.MaterialComponents"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="#F1F5F9"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingStart="16dp" android:paddingEnd="16dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Show Internship Progress" android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Visible to instructor and supervisor" android:textColor="#64748B" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <Switch android:id="@+id/switchShowProgress"
+                        android:layout_width="50dp" android:layout_height="50dp"
+                        android:checked="true" android:theme="@style/Theme.MaterialComponents"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="#F1F5F9"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingStart="16dp" android:paddingEnd="16dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Show Daily Reports" android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Visible to assigned parties only" android:textColor="#64748B" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <Switch android:id="@+id/switchShowReports"
+                        android:layout_width="50dp" android:layout_height="50dp"
+                        android:checked="true" android:theme="@style/Theme.MaterialComponents"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteAccountPrivacy"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Delete Account"
+            android:textAllCaps="false"
+            android:textColor="#DC2626"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="#FEE2E2"
+            app:cornerRadius="14dp"
+            app:strokeWidth="0dp"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

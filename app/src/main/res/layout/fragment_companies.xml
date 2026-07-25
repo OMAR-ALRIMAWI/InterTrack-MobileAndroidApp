@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshCompanies"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_content_rounded_top"
+    android:clipToOutline="true">
+
+    <!-- Search + filter row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilCompanySearch"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search companies in Turkey"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeColor="#D1D9E0"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="#64748B"
+            app:hintTextColor="#64748B">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCompanySearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="#0F172A"
+                android:textSize="14sp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCompanyFilter"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:padding="0dp"
+            app:cornerRadius="14dp"
+            app:strokeColor="#0569BF"
+            app:strokeWidth="1dp"
+            app:icon="@drawable/ic_notif_calendar"
+            app:iconTint="#0569BF"
+            app:iconSize="20dp"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:text=""
+            app:backgroundTint="#EAF3FF"/>
+
+    </LinearLayout>
+
+    <!-- Loading state -->
+    <ProgressBar
+        android:id="@+id/companiesProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:visibility="gone" />
+
+    <!-- Empty state -->
+    <TextView
+        android:id="@+id/tvCompaniesEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="No open internships are available right now."
+        android:textColor="#9CA3AF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <!-- Error state -->
+    <TextView
+        android:id="@+id/tvCompaniesError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:textColor="#DC2626"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- Companies list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCompanies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="120dp"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        android:overScrollMode="never"/>
+
+</LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

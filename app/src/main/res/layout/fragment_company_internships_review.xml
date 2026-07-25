@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshCompInternships"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_content_rounded_top"
+    android:clipToOutline="true"
+    android:clipToPadding="false"
+    android:paddingBottom="120dp"
+    android:scrollbars="none"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="20dp">
+
+        <!-- Status filter chips -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupCompInternships"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="8dp"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCompIntAll"
+                    style="@style/Widget.InterTrack.FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="All"
+                    android:textSize="12sp"
+                    android:checkable="true"
+                    android:checked="true" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCompIntActive"
+                    style="@style/Widget.InterTrack.FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Active"
+                    android:textSize="12sp"
+                    android:checkable="true" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCompIntCompleted"
+                    style="@style/Widget.InterTrack.FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Completed"
+                    android:textSize="12sp"
+                    android:checkable="true" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCompIntEnded"
+                    style="@style/Widget.InterTrack.FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Ended"
+                    android:textSize="12sp"
+                    android:checkable="true" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <!-- Section header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Internships"
+            android:textColor="#0F172A"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Loading -->
+        <ProgressBar
+            android:id="@+id/progressCompInternships"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone" />
+
+        <!-- Empty -->
+        <TextView
+            android:id="@+id/tvCompInternshipsEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No internships yet."
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
+        <!-- Error -->
+        <TextView
+            android:id="@+id/tvCompInternshipsError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Could not load internships."
+            android:textColor="#DC2626"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
+        <!-- List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCompInternships"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

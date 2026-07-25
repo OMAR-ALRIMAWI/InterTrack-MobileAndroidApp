@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Main blue gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="315"
+                android:startColor="#0A56B5"
+                android:centerColor="#1B7BE8"
+                android:endColor="#044A99" />
+        </shape>
+    </item>
+
+    <!-- Top-left soft glow -->
+    <item
+        android:left="-180dp"
+        android:top="-180dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="340dp"
+                android:centerColor="#55D9ECFF"
+                android:endColor="#00FFFFFF" />
+            <size
+                android:width="520dp"
+                android:height="520dp" />
+        </shape>
+    </item>
+
+    <!-- Bottom-right deep glow -->
+    <item
+        android:right="-240dp"
+        android:bottom="-240dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="380dp"
+                android:centerColor="#44398DFF"
+                android:endColor="#00000000" />
+            <size
+                android:width="620dp"
+                android:height="620dp" />
+        </shape>
+    </item>
+
+    <!-- Extra top shine -->
+    <item
+        android:right="-120dp"
+        android:top="-80dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="240dp"
+                android:centerColor="#22FFFFFF"
+                android:endColor="#00FFFFFF" />
+            <size
+                android:width="320dp"
+                android:height="320dp" />
+        </shape>
+    </item>
+
+</layer-list>

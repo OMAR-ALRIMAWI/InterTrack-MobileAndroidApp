@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Main app colors — InterTrack primary -->
+    <color name="main_color">#0569bf</color>
+    <color name="main_color_dark">#0451A0</color>
+    <color name="blue_color">#0569bf</color>
+    <color name="white_color">#FFFFFF</color>
+
+    <!-- Dashboard colors -->
+    <color name="background_color">#F6F9FC</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+
+    <!-- Bottom nav colors -->
+    <color name="bottom_nav_selected">#0569bf</color>
+    <color name="bottom_nav_unselected">#9CA3AF</color>
+
+    <!-- Status / accent colors -->
+    <color name="success_green">#16A34A</color>
+    <color name="warning_orange">#F97316</color>
+    <color name="accent_purple">#7C3AED</color>
+    <color name="light_border">#E2E8F0</color>
+    <color name="danger_red">#DC2626</color>
+</resources>

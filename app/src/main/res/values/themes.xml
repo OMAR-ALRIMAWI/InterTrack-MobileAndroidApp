@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.InterTrack" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Main app colors -->
+        <item name="colorPrimary">#005FAF</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- BottomNavigation selected indicator color -->
+        <item name="colorSecondaryContainer">#005FAF</item>
+        <item name="colorOnSecondaryContainer">#FFFFFF</item>
+
+        <!-- Optional: removes default purple tint influence -->
+        <item name="colorSecondary">#005FAF</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+    </style>
+
+    <style name="Theme.InterTrack" parent="Base.Theme.InterTrack" />
+
+</resources>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:strokeWidth="1dp"
+    app:strokeColor="#E2E8F0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header row: avatar + info + status badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <FrameLayout
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:background="@drawable/bg_icon_circle_blue"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvAppItemInitials"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="?"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvAppItemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Name"
+                    android:textColor="#0F172A"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAppItemInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="University · Major"
+                    android:textColor="#64748B"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvAppItemStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_pending"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="Pending"
+                android:textColor="#92400E"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Skills row -->
+        <TextView
+            android:id="@+id/tvAppItemSkills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Skills: —"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Applied date -->
+        <TextView
+            android:id="@+id/tvAppItemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Applied: —"
+            android:textColor="#94A3B8"
+            android:textSize="11sp"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Instructor / connection status (shown for ACCEPTED rows) -->
+        <TextView
+            android:id="@+id/tvAppItemConnStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#64748B"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone" />
+
+        <!-- Rejection reason (shown only when REJECTED) -->
+        <TextView
+            android:id="@+id/tvAppItemRejectionReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#DC2626"
+            android:textSize="11sp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <!-- Action buttons: Accept + Reject (shown only when PENDING) -->
+        <LinearLayout
+            android:id="@+id/llAppItemActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAcceptAppItem"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="Accept"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                app:backgroundTint="#16A34A"
+                app:strokeWidth="0dp"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRejectAppItem"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Reject"
+                android:textSize="13sp"
+                android:textColor="#DC2626"
+                android:textAllCaps="false"
+                app:backgroundTint="@android:color/transparent"
+                app:strokeColor="#DC2626"
+                app:strokeWidth="1dp"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+
+        <!-- ACCEPTED actions: Progress Hub + Message + Chat (shown only for ACCEPTED) -->
+        <LinearLayout
+            android:id="@+id/llAcceptedActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAppProgressHub"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="6dp"
+                android:text="Open Internship Hub"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                app:backgroundTint="#005FAF"
+                app:strokeWidth="0dp"
+                app:cornerRadius="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAppMessageStudent"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="Message"
+                    android:textSize="12sp"
+                    android:textColor="#005FAF"
+                    android:textAllCaps="false"
+                    app:backgroundTint="@android:color/transparent"
+                    app:strokeColor="#005FAF"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAppProgressChat"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Progress Chat"
+                    android:textSize="12sp"
+                    android:textColor="#005FAF"
+                    android:textAllCaps="false"
+                    app:backgroundTint="@android:color/transparent"
+                    app:strokeColor="#005FAF"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Remove button: shown for PENDING and ACCEPTED apps by supervisor -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRemoveAppItem"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="6dp"
+            android:text="Remove Application"
+            android:textSize="12sp"
+            android:textColor="#94A3B8"
+            android:textAllCaps="false"
+            app:backgroundTint="@android:color/transparent"
+            app:strokeColor="#E2E8F0"
+            app:strokeWidth="1dp"
+            app:cornerRadius="8dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,41 @@
+# Android Studio and local machine files
+*.iml
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+local.properties
+
+# Gradle and generated build output
+.gradle/
+.kotlin/
+**/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Firebase configuration and deployment files (supply your own local copies)
+google-services.json
+**/google-services.json
+.firebaserc
+firebase.json
+firestore.rules
+
+# Secrets and signing material
+.env
+*.env
+*.jks
+*.keystore
+*.p12
+
+# Local databases and exports
+*.sql
+*.db
+*.sqlite
+
+# Operating system files
+.DS_Store
+Thumbs.db

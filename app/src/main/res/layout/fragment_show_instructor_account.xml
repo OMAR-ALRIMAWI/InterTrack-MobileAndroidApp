@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0569bf">
+
+    <!-- In-fragment header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="54dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnInstructorProfileBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="7dp"
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="Back"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:text="Instructor Profile"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- White scrollable body -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_content_rounded_top"
+        android:clipToOutline="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="26dp"
+            android:paddingBottom="32dp">
+
+            <!-- Avatar + Name + Dept -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <FrameLayout
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/bg_icon_circle_blue"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvInstProfileInitials"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="SS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvInstProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Dr. Sarah Smith"
+                    android:textColor="#0F172A"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvInstProfileDept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Computer Engineering"
+                    android:textColor="#0569bf"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvInstProfileUniversity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Istanbul Technical University"
+                    android:textColor="#64748B"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Info cards -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Contact Information"
+                        android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginBottom="10dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+                        <FrameLayout android:layout_width="34dp" android:layout_height="34dp"
+                            android:background="@drawable/bg_icon_circle_blue" android:gravity="center">
+                            <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_mail" app:tint="#FFFFFF"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+                        <TextView
+                            android:id="@+id/tvInstEmail"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="s.smith@itu.edu.tr"
+                            android:textColor="#374151" android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <FrameLayout android:layout_width="34dp" android:layout_height="34dp"
+                            android:background="@drawable/bg_icon_soft_blue" android:gravity="center">
+                            <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_building" app:tint="#005FAF"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+                        <TextView
+                            android:id="@+id/tvInstOffice"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Office: EEB 3rd Floor, Room 312"
+                            android:textColor="#374151" android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Bio -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp" app:strokeColor="#E2E8F0">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="About"
+                        android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvInstBio"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Dr. Sarah Smith is an Associate Professor specializing in software engineering, distributed systems, and AI-driven applications. She has supervised over 60 internship students and actively mentors students in their academic and professional development."
+                        android:textColor="#374151" android:textSize="13sp"
+                        android:lineSpacingExtra="4dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Supervision info -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="#EFF6FF"
+                app:strokeWidth="1dp" app:strokeColor="#BFDBFE">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Supervision Info"
+                        android:textColor="#0569bf" android:textSize="13sp" android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Currently supervising 8 students · Accepts new students for the upcoming semester."
+                        android:textColor="#374151" android:textSize="12sp"
+                        android:lineSpacingExtra="3dp" />
+
+                </LinearLayout>
+
+                <!-- TODO: fetch real supervision slots from backend -->
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Follow button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFollowInstructor"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Follow Instructor"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                app:backgroundTint="#0569bf"
+                app:cornerRadius="16dp"
+                app:strokeWidth="0dp" />
+
+            <!-- Message button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMessageInstructor"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="Message"
+                android:textColor="#0569bf"
+                android:textSize="14sp"
+                android:textAllCaps="false"
+                app:backgroundTint="@android:color/transparent"
+                app:strokeColor="#0569bf"
+                app:strokeWidth="1dp"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

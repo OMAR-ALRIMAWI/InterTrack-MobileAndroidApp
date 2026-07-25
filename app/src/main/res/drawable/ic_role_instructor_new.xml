@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+
+    <!--  Academic instructor: person profile + open book  -->
+
+    <!-- Head (circle centered at 16,7.5 r=5) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M11,7.5a5,5 0 1 0 10,0a5,5 0 1 0 -10,0Z"/>
+
+    <!-- Shoulders / upper body -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M8,22C8,18.1 11.6,15.5 16,15.5C20.4,15.5 24,18.1 24,22L24,23L8,23Z"/>
+
+    <!-- Open book – left page -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M4,26.5C4,25.4 5,24.5 6.5,24.5L15,24L15,30.5L6.5,30.5C5,30.5 4,29.6 4,28.5Z"/>
+
+    <!-- Open book – right page -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M28,26.5C28,25.4 27,24.5 25.5,24.5L17,24L17,30.5L25.5,30.5C27,30.5 28,29.6 28,28.5Z"/>
+
+    <!-- Book spine (center divider) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M14.5,23L17.5,23L17.5,31L14.5,31Z"/>
+
+</vector>

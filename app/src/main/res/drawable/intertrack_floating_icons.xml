@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/floatingIconsLayer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/iconLaptop"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="-8dp"
+        android:layout_marginTop="72dp"
+        android:alpha="0.95"
+        android:rotation="-10"
+        android:scaleType="fitCenter"
+        android:src="@drawable/laptop_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iconGraduation"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="-2dp"
+        android:alpha="0.95"
+        android:rotation="12"
+        android:scaleType="fitCenter"
+        android:src="@drawable/graduation_hat_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iconDocument"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="-12dp"
+        android:layout_marginTop="300dp"
+        android:alpha="0.95"
+        android:rotation="-8"
+        android:scaleType="fitCenter"
+        android:src="@drawable/document"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iconPhone"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="368dp"
+        android:layout_marginEnd="-6dp"
+        android:alpha="0.95"
+        android:rotation="10"
+        android:scaleType="fitCenter"
+        android:src="@drawable/phone_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

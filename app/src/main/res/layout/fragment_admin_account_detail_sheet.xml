@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="32dp">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="4dp"
+        android:background="#DDE1E7"
+        android:layerType="software" />
+
+    <!-- Header row: initials + name/email + close -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:paddingBottom="12dp">
+
+        <FrameLayout
+            android:id="@+id/sheetInitialsHolder"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_icon_circle_blue">
+
+            <TextView
+                android:id="@+id/tvSheetInitials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="JS" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/sheetInitialsHolder"
+            android:layout_toStartOf="@+id/btnSheetClose"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSheetName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#111827"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="John Smith" />
+
+            <TextView
+                android:id="@+id/tvSheetEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#6B7280"
+                android:textSize="12sp"
+                tools:text="john@example.com" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnSheetClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="Close"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:rotation="90"
+            app:tint="#9CA3AF" />
+
+    </RelativeLayout>
+
+    <!-- Role + Status row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvSheetRole"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#374151"
+            android:textSize="13sp"
+            tools:text="Student" />
+
+        <TextView
+            android:id="@+id/tvSheetStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pending_pill"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            tools:text="PENDING" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F3F4F6"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Already deleted notice (shown only for DELETED accounts) -->
+    <TextView
+        android:id="@+id/tvAlreadyDeleted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_info_box"
+        android:padding="14dp"
+        android:text="This account has been deleted and cannot be modified."
+        android:textColor="#374151"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <!-- Block button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSheetBlock"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#374151"
+        android:elevation="0dp"
+        android:text="Block Account"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:icon="@drawable/ic_lock"
+        app:iconTint="#FFFFFF"
+        android:visibility="gone" />
+
+    <!-- Unblock button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSheetUnblock"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#16A34A"
+        android:elevation="0dp"
+        android:text="Unblock Account"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:icon="@drawable/ic_check_circle"
+        app:iconTint="#FFFFFF"
+        android:visibility="gone" />
+
+    <!-- Delete button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSheetDelete"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@android:color/transparent"
+        android:elevation="0dp"
+        android:text="Delete Account"
+        android:textAllCaps="false"
+        android:textColor="#DC2626"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:strokeColor="#DC2626"
+        app:strokeWidth="1dp"
+        android:visibility="gone" />
+
+</LinearLayout>

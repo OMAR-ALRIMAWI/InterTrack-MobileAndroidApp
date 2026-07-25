@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:paddingBottom="32dp">
+
+        <!-- Back button -->
+        <LinearLayout
+            android:id="@+id/btnDetailBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_back_arrow"
+                android:contentDescription="Back"
+                app:tint="#005FAF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Back to Requests"
+                android:textColor="#005FAF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- User info card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E2E8F0"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_icon_circle_blue">
+
+                    <TextView
+                        android:id="@+id/tvDetailInitials"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="JS" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvDetailName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#111827"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        tools:text="John Smith" />
+
+                    <TextView
+                        android:id="@+id/tvDetailEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textColor="#6B7280"
+                        android:textSize="13sp"
+                        tools:text="john.smith@example.com" />
+
+                    <TextView
+                        android:id="@+id/tvDetailRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/bg_pending_pill"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        tools:text="Student" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Verification details section (Student only) -->
+        <LinearLayout
+            android:id="@+id/verificationSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Verification Details"
+                android:textColor="#111827"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/verificationLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12dp"
+                android:visibility="visible" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/verificationContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Personal ID Number -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PERSONAL ID NUMBER"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+                    <TextView
+                        android:id="@+id/tvPersonalId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp"
+                        android:textColor="#111827"
+                        android:textSize="14sp"
+                        tools:text="1234567890" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <!-- University ID Number -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UNIVERSITY ID NUMBER"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+                    <TextView
+                        android:id="@+id/tvUniversityId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp"
+                        android:textColor="#111827"
+                        android:textSize="14sp"
+                        tools:text="S-2021-12345" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <!-- University -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UNIVERSITY"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+                    <TextView
+                        android:id="@+id/tvUniversity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp"
+                        android:textColor="#111827"
+                        android:textSize="14sp"
+                        tools:text="King Abdulaziz University" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <!-- Major -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MAJOR / DEPARTMENT"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+                    <TextView
+                        android:id="@+id/tvMajor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp"
+                        android:textColor="#111827"
+                        android:textSize="14sp"
+                        tools:text="Computer Engineering" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <!-- Academic Year -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ACADEMIC YEAR"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+                    <TextView
+                        android:id="@+id/tvAcademicYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp"
+                        android:textColor="#111827"
+                        android:textSize="14sp"
+                        tools:text="3rd Year, 2024-2025" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <!-- Documents -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="SUBMITTED DOCUMENTS"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/ic_upload_document"
+                            app:tint="#374151" />
+
+                        <TextView
+                            android:id="@+id/tvPersonalIdDoc"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="#374151"
+                            android:textSize="13sp"
+                            tools:text="personal_id.jpg" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/ic_student_id"
+                            app:tint="#374151" />
+
+                        <TextView
+                            android:id="@+id/tvUniversityIdDoc"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="#374151"
+                            android:textSize="13sp"
+                            tools:text="university_id.jpg" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Verification details section (Company Supervisor only) -->
+        <LinearLayout
+            android:id="@+id/companyVerificationSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Company Verification"
+                android:textColor="#111827"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/companyVerificationLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12dp"
+                android:visibility="visible" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/companyVerificationContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="COMPANY NAME" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerCompanyName" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="OpenAI Ltd." />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="COMPANY EMAIL" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerCompanyEmail" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="info@openai.com" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="COMMERCIAL REGISTRATION NUMBER" android:textColor="#9CA3AF"
+                        android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerRegNumber" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="CR-123456" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="ADDRESS" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerAddress" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="Street, City, Country" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="PHONE" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerPhone" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="+90 555 000 0000" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="WEBSITE" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerWebsite" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="https://www.openai.com" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SUPERVISOR NAME" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerSupervisorName" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="Jane Doe" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SUPERVISOR POSITION" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+                    <TextView android:id="@+id/tvCompVerSupervisorPosition" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:layout_marginBottom="14dp" android:textColor="#111827" android:textSize="14sp"
+                        tools:text="HR Manager" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3F4F6" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="SUBMITTED DOCUMENTS" android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:textStyle="bold" android:letterSpacing="0.05" />
+
+                    <TextView android:id="@+id/tvCompVerCommercialDoc" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginBottom="4dp"
+                        android:textColor="#374151" android:textSize="13sp"
+                        tools:text="Commercial Registration: cr.pdf" />
+
+                    <TextView android:id="@+id/tvCompVerAuthorizationDoc" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginBottom="4dp"
+                        android:textColor="#374151" android:textSize="13sp"
+                        tools:text="Authorization: auth.pdf" />
+
+                    <TextView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Document record only - file preview unavailable"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- No verification data message -->
+        <TextView
+            android:id="@+id/tvNoVerificationData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_info_box"
+            android:padding="14dp"
+            android:textColor="#374151"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:text="No verification data submitted." />
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <!-- Approve button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApproveRequest"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#16A34A"
+            android:elevation="0dp"
+            android:text="Approve Account"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_check_circle"
+            app:iconTint="#FFFFFF" />
+
+        <!-- Reject button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRejectRequest"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:backgroundTint="@android:color/transparent"
+            android:elevation="0dp"
+            android:text="Reject Application"
+            android:textAllCaps="false"
+            android:textColor="#DC2626"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:strokeColor="#DC2626"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

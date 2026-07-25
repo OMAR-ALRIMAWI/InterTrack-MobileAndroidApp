@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0569bf">
+
+    <!-- In-fragment header with back button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="22dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="16dp">
+
+        <!-- Back button row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnVerifyBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="9dp"
+                android:src="@drawable/ic_back_arrow"
+                android:contentDescription="Back"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="Student Verification"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="6dp"
+            android:text="Complete your profile to access all features"
+            android:textColor="#CCE0FF" android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <!-- White body -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_content_rounded_top"
+        android:clipToOutline="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- ── FORM STATE ── -->
+            <LinearLayout
+                android:id="@+id/layoutVerifyForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Info banner -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_info_box"
+                    android:padding="14dp"
+                    android:layout_marginBottom="20dp">
+
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                        android:src="@drawable/ic_student_id"
+                        app:tint="#0569bf"
+                        android:contentDescription="@null" android:layout_marginEnd="10dp" />
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Your information will be reviewed by the InterTrack team. Verification takes 1–2 business days."
+                        android:textColor="#1D4ED8" android:textSize="12sp"
+                        android:lineSpacingExtra="3dp" />
+
+                </LinearLayout>
+
+                <!-- Full Name -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Full Name" android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:hintEnabled="false" app:boxBackgroundMode="none"
+                    android:layout_marginBottom="14dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVerifyFullName"
+                        android:layout_width="match_parent" android:layout_height="58dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center_vertical"
+                        android:hint="Enter your full name"
+                        android:inputType="textPersonName"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="14sp" android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- University -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="University" android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:hintEnabled="false" app:boxBackgroundMode="none"
+                    android:layout_marginBottom="14dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVerifyUniversity"
+                        android:layout_width="match_parent" android:layout_height="58dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center_vertical"
+                        android:hint="e.g. Istanbul Technical University"
+                        android:inputType="textCapWords"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="14sp" android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Student ID -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Student ID" android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:hintEnabled="false" app:boxBackgroundMode="none"
+                    android:layout_marginBottom="14dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVerifyStudentId"
+                        android:layout_width="match_parent" android:layout_height="58dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center_vertical"
+                        android:hint="Enter your student ID number"
+                        android:inputType="number"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="14sp" android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Major / Department -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Major / Department" android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:hintEnabled="false" app:boxBackgroundMode="none"
+                    android:layout_marginBottom="14dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVerifyMajor"
+                        android:layout_width="match_parent" android:layout_height="58dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center_vertical"
+                        android:hint="e.g. Computer Engineering"
+                        android:inputType="textCapWords"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="14sp" android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Academic Year -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Academic Year" android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:hintEnabled="false" app:boxBackgroundMode="none"
+                    android:layout_marginBottom="14dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVerifyAcademicYear"
+                        android:layout_width="match_parent" android:layout_height="58dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center_vertical"
+                        android:hint="e.g. 3rd Year / 2023-2024"
+                        android:inputType="text"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="14sp" android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- University Email -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="University Email" android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:hintEnabled="false" app:boxBackgroundMode="none"
+                    android:layout_marginBottom="14dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVerifyUniEmail"
+                        android:layout_width="match_parent" android:layout_height="58dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center_vertical"
+                        android:hint="yourname@university.edu"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="14sp" android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Phone (optional) -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Phone Number (Optional)" android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:hintEnabled="false" app:boxBackgroundMode="none"
+                    android:layout_marginBottom="20dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVerifyPhone"
+                        android:layout_width="match_parent" android:layout_height="58dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center_vertical"
+                        android:hint="+90 5xx xxx xx xx"
+                        android:inputType="phone"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="14sp" android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Personal ID document picker -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Personal ID Document"
+                    android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <LinearLayout
+                    android:id="@+id/btnUploadPersonalId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_upload_placeholder"
+                    android:padding="14dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                        android:src="@drawable/ic_upload_document"
+                        app:tint="#64748B"
+                        android:contentDescription="@null"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvPersonalIdPickerLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tap to select Personal ID"
+                            android:textColor="#64748B"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvPersonalIdFileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="#005FAF"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- University ID card picker -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="University ID Card"
+                    android:textColor="#374151"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="6dp" />
+
+                <LinearLayout
+                    android:id="@+id/btnUploadUniversityId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_upload_placeholder"
+                    android:padding="14dp"
+                    android:layout_marginBottom="24dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                        android:src="@drawable/ic_student_id"
+                        app:tint="#64748B"
+                        android:contentDescription="@null"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvUniversityIdPickerLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tap to select University ID"
+                            android:textColor="#64748B"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvUniversityIdFileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="#005FAF"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Submit button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmitVerification"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="Submit Verification Request"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    app:backgroundTint="#0569bf"
+                    app:cornerRadius="16dp"
+                    app:strokeWidth="0dp" />
+
+            </LinearLayout>
+
+            <!-- ── PENDING STATE (shown after submit) ── -->
+            <LinearLayout
+                android:id="@+id/layoutVerifyPending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="40dp"
+                android:visibility="gone">
+
+                <!-- Large check icon -->
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/ic_check_circle"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Verification Submitted!"
+                    android:textColor="#0F172A"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Your verification request is under review.\n\nThank you for applying to InterTrack. We will notify you by email once your student status has been reviewed and confirmed."
+                    android:textColor="#64748B"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="14dp" app:cardElevation="0dp"
+                    app:cardBackgroundColor="#FEF3C7"
+                    app:strokeWidth="1dp" app:strokeColor="#FDE68A">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:padding="14dp">
+
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                            android:src="@drawable/ic_notif_calendar" app:tint="#D97706"
+                            android:contentDescription="@null" android:layout_marginEnd="10dp" />
+
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:text="Review typically takes 1–2 business days. You will receive an email notification once your status is updated."
+                            android:textColor="#92400E" android:textSize="12sp"
+                            android:lineSpacingExtra="3dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGoToDashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Continue to Dashboard"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    app:backgroundTint="#0569bf"
+                    app:cornerRadius="16dp"
+                    app:strokeWidth="0dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

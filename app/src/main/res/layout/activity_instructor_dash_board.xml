@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/instructorMainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F9FC"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".activities.InstructorDashBoard">
+
+    <!-- ═══════════════════════════════════════════
+         SHARED BLUE HEADER
+         ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/instSharedHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_header_shell"
+        android:paddingTop="50dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingBottom="34dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Brand row -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/instBrandGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_logo_glass"
+                    android:padding="5dp"
+                    android:src="@drawable/main_logo"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="InterTrack" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="InterTrack"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Notification bell — clean circle, no rectangular ripple -->
+            <FrameLayout
+                android:id="@+id/instNotificationWrap"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_notification_circle_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:clipToOutline="true"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:id="@+id/instNotificationIcon"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bell_blue"
+                    android:contentDescription="Notifications"
+                    app:tint="#005FAF" />
+
+                <!-- Unread notifications badge -->
+                <View
+                    android:id="@+id/instNotifUnreadDot"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_notif_badge_red"
+                    android:visibility="visible" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <!-- Page title -->
+        <TextView
+            android:id="@+id/instTvPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Dashboard"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Subtitle (hidden by default) -->
+        <TextView
+            android:id="@+id/instTvPageSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text=""
+            android:textColor="#CCE0FF"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════
+         FRAGMENT CONTAINER
+         ═══════════════════════════════════════════ -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/instFragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-24dp"
+        android:background="@drawable/bg_body_top_rounded"
+        app:layout_goneMarginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@id/instSharedHeader"
+        app:layout_constraintBottom_toTopOf="@id/instBottomNavContainer"
+        app:layout_goneMarginBottom="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ═══════════════════════════════════════════
+         BOTTOM NAVIGATION PILL
+         ═══════════════════════════════════════════ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/instBottomNavContainer"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="18dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="34dp"
+        app:cardElevation="10dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <!-- Students tab -->
+            <LinearLayout
+                android:id="@+id/instNavStudents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/instStudentsIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_nav_selected_pill">
+
+                    <ImageView
+                        android:id="@+id/instStudentsIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_home"
+                        android:contentDescription="Dashboard"
+                        app:tint="#FFFFFF" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/instStudentsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Dashboard"
+                    android:textColor="#0569bf"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Review tab -->
+            <LinearLayout
+                android:id="@+id/instNavReview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/instReviewIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/instReviewIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_reports"
+                        android:contentDescription="Review"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/instReviewText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Review"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Requests tab -->
+            <LinearLayout
+                android:id="@+id/instNavRequests"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/instRequestsIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/instRequestsIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_add_person"
+                        android:contentDescription="Requests"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/instRequestsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Requests"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Messages tab -->
+            <LinearLayout
+                android:id="@+id/instNavMessages"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/instMessagesIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/instMessagesIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_messages"
+                        android:contentDescription="Messages"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/instMessagesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Messages"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Profile tab -->
+            <LinearLayout
+                android:id="@+id/instNavProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/instProfileIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/instProfileIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_profile"
+                        android:contentDescription="Profile"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/instProfileText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Profile"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

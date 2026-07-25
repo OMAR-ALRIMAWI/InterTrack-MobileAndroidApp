@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adminMainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F9FC"
+    tools:context=".activities.AdminDashboardActivity">
+
+    <!-- ═══════════════════════════════════════
+         BLUE HEADER
+         ═══════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/sharedHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_header_shell"
+        android:paddingTop="50dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingBottom="34dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Brand row: logo + InterTrack + admin email -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/brandGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_logo_glass"
+                    android:padding="5dp"
+                    android:src="@drawable/main_logo"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/intertrack"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Notification bell button -->
+            <FrameLayout
+                android:id="@+id/notificationWrap"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_notification_circle_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:clipToOutline="true"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:id="@+id/notificationIcon"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bell_blue"
+                    android:contentDescription="@string/notifications"
+                    app:tint="#005FAF" />
+
+                <View
+                    android:id="@+id/notifUnreadDot"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_notif_badge_red"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvAdminEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/notificationWrap"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:textColor="#CCE0FF"
+                android:textSize="12sp"
+                android:maxWidth="140dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="admin@intertrack.com" />
+
+        </RelativeLayout>
+
+        <!-- Dynamic page title -->
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Dashboard"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════
+         FRAGMENT CONTAINER
+         ═══════════════════════════════════════ -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/adminFragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-24dp"
+        android:background="@drawable/bg_body_top_rounded"
+        app:layout_constraintTop_toBottomOf="@id/sharedHeader"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ═══════════════════════════════════════
+         BOTTOM NAVIGATION PILL (4 items, no FAB)
+         ═══════════════════════════════════════ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="18dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="34dp"
+        app:cardElevation="10dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <!-- Home -->
+            <LinearLayout
+                android:id="@+id/navHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/homeIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_nav_selected_pill">
+
+                    <ImageView
+                        android:id="@+id/homeIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_home"
+                        android:contentDescription="@string/home"
+                        app:tint="#FFFFFF" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/homeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Home"
+                    android:textColor="#0569bf"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Requests -->
+            <LinearLayout
+                android:id="@+id/navRequests"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/requestsIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/requestsIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_notif_report"
+                        android:contentDescription="Requests"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/requestsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Requests"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Accounts -->
+            <LinearLayout
+                android:id="@+id/navAccounts"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/accountsIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/accountsIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_add_person"
+                        android:contentDescription="Accounts"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/accountsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Accounts"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Profile -->
+            <LinearLayout
+                android:id="@+id/navProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/profileIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/profileIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_profile"
+                        android:contentDescription="@string/profile"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/profileText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/profile"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

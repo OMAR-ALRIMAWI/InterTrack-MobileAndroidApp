@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F9FC"
+    android:clipToPadding="false"
+    android:paddingBottom="32dp"
+    android:scrollbars="none"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_header_shell"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="52dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:id="@+id/btnApplyBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_header_icon_glass"
+                android:padding="10dp"
+                android:src="@drawable/ic_back_arrow"
+                android:contentDescription="Back"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apply for Internship"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvApplyCompanyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TechCorp Solutions"
+                    android:textColor="#CCE0FF"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Status banner -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#EAF3FF"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Application Status:"
+                    android:textColor="#64748B"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tvApplicationStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Not Applied"
+                    android:textColor="#0569BF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_filter_chip_inactive"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Already applied card (shown instead of form when duplicate) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAlreadyApplied"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E2E8F0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvAlreadyAppliedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Application Submitted"
+                    android:textColor="#0F172A"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvAlreadyAppliedMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You have already applied to this company."
+                    android:textColor="#64748B"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/tvAlreadyAppliedStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status: PENDING"
+                    android:textColor="#0569BF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_filter_chip_inactive"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Form content (hidden when already applied) -->
+        <LinearLayout
+            android:id="@+id/layoutApplyForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Personal Info card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Personal Information"
+                        android:textColor="#0F172A"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="14dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:hint="Full Name *"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyStudentName"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textPersonName" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:hint="University *"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyUniversity"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="text" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:hint="Major / Department *"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyMajor"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="text" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:hint="Year Level"
+                            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                            app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etApplyYearLevel"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="number" android:maxLength="1"
+                                android:textColor="#0F172A" android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:layout_marginBottom="12dp"
+                            android:hint="GPA"
+                            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                            app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etApplyGpa"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="numberDecimal" android:maxLength="4"
+                                android:textColor="#0F172A" android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:hint="Email *"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyEmail"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp"
+                        android:hint="Phone Number"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyPhone"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="phone" android:digits="+0123456789 "
+                            android:maxLength="16"
+                            android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Internship Preferences card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Internship Preferences"
+                        android:textColor="#0F172A"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="14dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp" android:hint="Preferred Department / Position"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyPreferredDept"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="text" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Official start/end dates are set by the company after acceptance (Internship
+                         Period dialog). Students only see the offer's duration here, read-only. -->
+                    <LinearLayout
+                        android:id="@+id/rowOfferDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_filter_chip_inactive"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Offer duration"
+                            android:textColor="#64748B"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvOfferDurationInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Set by company after acceptance"
+                            android:textColor="#0F172A"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp" android:hint="Skills"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplySkills"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="text" android:textColor="#0F172A" android:textSize="14sp"
+                            android:hint="e.g. Java, Kotlin, Python"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp" android:hint="Motivation / Why This Internship? *"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyMotivation"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textMultiLine" android:minLines="4"
+                            android:gravity="top" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp" android:hint="Previous Experience"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyExperience"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textMultiLine" android:minLines="3"
+                            android:gravity="top" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Attachments card — hidden: Firebase Storage is not available -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Attachments"
+                        android:textColor="#0F172A"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="14dp"/>
+
+                    <!-- CV Upload -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <LinearLayout
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="CV / Resume *"
+                                android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                            <TextView
+                                android:id="@+id/tvCvFileName"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="No file selected"
+                                android:textColor="#94A3B8" android:textSize="12sp" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnUploadCv"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content" android:layout_height="40dp"
+                            android:text="Upload"
+                            android:textAllCaps="false" android:textColor="#0569BF" android:textSize="13sp"
+                            app:cornerRadius="10dp" app:strokeColor="#0569BF" app:strokeWidth="1dp"
+                            app:icon="@drawable/ic_upload_document" app:iconTint="#0569BF"/>
+                    </LinearLayout>
+
+                    <!-- Verification doc -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <LinearLayout
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Verification Document"
+                                android:textColor="#0F172A" android:textSize="14sp" android:textStyle="bold"/>
+                            <TextView
+                                android:id="@+id/tvVerificationFileName"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="No file selected"
+                                android:textColor="#94A3B8" android:textSize="12sp" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnUploadVerification"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content" android:layout_height="40dp"
+                            android:text="Upload"
+                            android:textAllCaps="false" android:textColor="#0569BF" android:textSize="13sp"
+                            app:cornerRadius="10dp" app:strokeColor="#0569BF" app:strokeWidth="1dp"
+                            app:icon="@drawable/ic_upload_document" app:iconTint="#0569BF"/>
+                    </LinearLayout>
+
+                    <!-- Portfolio link -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Portfolio / LinkedIn / GitHub (Optional)"
+                        app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="#D1D9E0" app:hintTextColor="#64748B">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etApplyPortfolio"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textUri" android:textColor="#0F172A" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="32dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmitApplication"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Submit Application"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#005FAF"
+                    app:cornerRadius="14dp"
+                    app:strokeWidth="0dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveDraft"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Save as Draft"
+                    android:textAllCaps="false"
+                    android:textColor="#0569BF"
+                    android:textSize="15sp"
+                    app:cornerRadius="14dp"
+                    app:strokeColor="#0569BF"
+                    app:strokeWidth="1dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancelApplication"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="#64748B"
+                    android:textSize="15sp"
+                    app:cornerRadius="14dp"
+                    app:strokeColor="#E2E8F0"
+                    app:strokeWidth="1dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- end layoutApplyForm -->
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/studentMainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F9FC"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".activities.StudentDashBoard">
+
+    <!-- ═══════════════════════════════════════════
+         SHARED BLUE HEADER — logo, app name, bell,
+         dynamic page title & subtitle
+         ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/sharedHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_header_shell"
+        android:paddingTop="50dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingBottom="34dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Brand row: logo + InterTrack + notification bell -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Logo + App name -->
+            <LinearLayout
+                android:id="@+id/brandGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_logo_glass"
+                    android:padding="5dp"
+                    android:src="@drawable/main_logo"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/intertrack"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Notification bell button — clean circle, no rectangular ripple -->
+            <FrameLayout
+                android:id="@+id/notificationWrap"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_notification_circle_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:clipToOutline="true"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:id="@+id/notificationIcon"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bell_blue"
+                    android:contentDescription="@string/notifications"
+                    app:tint="#005FAF" />
+
+                <!-- Unread notifications badge -->
+                <View
+                    android:id="@+id/notifUnreadDot"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_notif_badge_red"
+                    android:visibility="visible" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <!-- Dynamic page title -->
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Home"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Dynamic page subtitle (hidden by default) -->
+        <TextView
+            android:id="@+id/tvPageSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text=""
+            android:textColor="#CCE0FF"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════
+         FRAGMENT CONTAINER
+         ═══════════════════════════════════════════ -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-24dp"
+        android:background="@drawable/bg_body_top_rounded"
+        app:layout_goneMarginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@id/sharedHeader"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavContainer"
+        app:layout_goneMarginBottom="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout="@layout/fragment_student_home" />
+
+    <!-- ═══════════════════════════════════════════
+         BOTTOM NAVIGATION PILL
+         ═══════════════════════════════════════════ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="18dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="34dp"
+        app:cardElevation="3dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#BFDBFE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/customBottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <!-- Home -->
+            <LinearLayout
+                android:id="@+id/navHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/homeIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_nav_selected_pill">
+
+                    <ImageView
+                        android:id="@+id/homeIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_home"
+                        android:contentDescription="@string/home"
+                        app:tint="#FFFFFF" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/homeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Dashboard"
+                    android:textColor="#0569bf"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Reports -->
+            <LinearLayout
+                android:id="@+id/navReports"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/reportsIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/reportsIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_reports"
+                        android:contentDescription="@string/reports"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/reportsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/reports"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Center space for FAB -->
+            <Space
+                android:id="@+id/navCenterSpace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <!-- Messages -->
+            <LinearLayout
+                android:id="@+id/navMessages"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/messagesIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/messagesIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_messages"
+                        android:contentDescription="@string/messages"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/messagesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/messages"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Profile -->
+            <LinearLayout
+                android:id="@+id/navProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <FrameLayout
+                    android:id="@+id/profileIconHolder"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/profileIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_profile"
+                        android:contentDescription="@string/profile"
+                        app:tint="#B8B2C4" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/profileText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/profile"
+                    android:textColor="#9CA3AF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ═══════════════════════════════════════════
+         CENTER FAB — InterTrack logo
+         ═══════════════════════════════════════════ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/centerFab"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="-40dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:translationZ="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="#0569bf"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavContainer"
+        app:layout_constraintStart_toStartOf="@id/bottomNavContainer"
+        app:layout_constraintEnd_toEndOf="@id/bottomNavContainer">
+
+        <ImageView
+            android:id="@+id/centerFabLogo"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:src="@drawable/main_logo"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/instructors" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

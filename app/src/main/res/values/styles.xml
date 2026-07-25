@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Reusable labels/fields for the Company Supervisor verification form (matches the visual
+         style of activity_student_verification.xml so the two verification screens feel identical). -->
+    <style name="CompVerLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:textColor">#374151</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CompVerField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="boxBackgroundColor">#F4F7FB</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxStrokeColor">@color/main_color</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="CompVerEdit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">58dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">#111827</item>
+        <item name="android:textColorHint">#4B5563</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BottomNavTextActive">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BottomNavTextInactive">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="ReportCardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardMaxElevation">12dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardBackgroundColor">#FFFFFF</item>
+        <item name="strokeColor">#005FAF</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         Shared InterTrack chip styles. Use these instead of the default
+         Material Choice chip (which renders dark/charcoal under Material3).
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Segment / filter chips: white + gray border when unselected,
+         InterTrack blue + white text when selected. -->
+    <style name="Widget.InterTrack.FilterChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/chip_filter_bg</item>
+        <item name="chipStrokeColor">@color/chip_filter_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_filter_text</item>
+        <item name="chipCornerRadius">14dp</item>
+        <item name="chipMinHeight">34dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="rippleColor">#330569BF</item>
+    </style>
+
+    <!-- Metadata pill (department / duration / seats / location). A TextView
+         style: light background, readable dark-blue text. -->
+    <style name="Widget.InterTrack.MetadataChip" parent="">
+        <item name="android:background">@drawable/bg_metadata_chip</item>
+        <item name="android:textColor">#1D4ED8</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <!-- Status pill base (OPEN / PENDING / ACCEPTED / REJECTED). Pair with a
+         per-status background drawable + text color. -->
+    <style name="Widget.InterTrack.StatusChip" parent="">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+</resources>
