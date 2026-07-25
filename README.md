@@ -6,6 +6,9 @@ InterTrack is an Android application for coordinating university internship work
 
 This repository is a sanitized public copy of the Android project. Machine-specific files, build output, signing material, databases, environment files, Git history, Firebase client configuration, and Firebase deployment configuration are intentionally excluded.
 
+<img width="356" height="808" alt="image" src="https://github.com/user-attachments/assets/23de7e28-0374-4dc4-9c99-f2ec91948a3c" />
+
+
 ## Features
 
 - Email and password registration, sign-in, sign-out, password reset, and password change
@@ -32,6 +35,9 @@ This repository is a sanitized public copy of the Android project. Machine-speci
 - Firebase Cloud Firestore
 - Firebase Analytics
 - JUnit, AndroidX Test, and Espresso
+
+- <img width="410" height="872" alt="image" src="https://github.com/user-attachments/assets/4c5f0afd-cec9-416c-9ecc-a990edfd031f" />
+
 
 ## Architecture
 
@@ -87,6 +93,9 @@ InterTrack-MobileAndroidApp-Public/
 - Account status
 - Student verification
 - Company verification
+
+- <img width="405" height="871" alt="image" src="https://github.com/user-attachments/assets/4b0323b6-4871-42d5-8296-d1d87ff96676" />
+
 
 ### Student
 
